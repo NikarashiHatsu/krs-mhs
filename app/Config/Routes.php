@@ -41,6 +41,10 @@ $routes->post('/logout', 'Auth\LogoutController::logout');
 
 $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'DashboardController::index');
+    $routes->presenter('matakuliah', [
+        'controller' => 'MatakuliahController',
+        'websafe' => true,
+    ]);
 });
 
 /*

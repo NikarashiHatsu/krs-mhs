@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <script src="<?= base_url('js/app.js') ?>" defer></script>
     <script src="<?= base_url('js/app-non-defer.js') ?>"></script>
+
+    <?php if(isset($datatable)): ?>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">        \
+        <style>
+            .dataTable  {
+                padding-top: 1rem !important;
+            }
+        </style>
+    <?php endif;?>
 </head>
 
 <body class="font-display antialiased text-base-content">
@@ -74,6 +83,22 @@
                         </a>
                     </li>
 
+                    <li class="menu-title">
+                        <span>
+                            Data Master
+                        </span>
+                    </li>
+                    <li>
+                        <a href="<?= base_url('/dashboard/matakuliah') ?>" class="<?= current_url(true)->getSegment(1) == 'matakuliah' ? 'active' : '' ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            <span class="ml-2">
+                                Mata Kuliah
+                            </span>
+                        </a>
+                    </li>
+
                     <li class="menu-title mt-4">
                         <span>
                             User Control
@@ -100,6 +125,17 @@
             </aside>
         </div>
     </div>
+    
+    <?php if(isset($datatable)): ?>
+        <script defer src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    
+        <script>
+            $(document).ready(function () {
+                $('#dataTable').DataTable();
+            });
+        </script>
+    <?php endif; ?>
 </body>
+
 
 </html>
