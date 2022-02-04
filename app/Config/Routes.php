@@ -57,7 +57,7 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
     $routes->presenter('krs_mahasiswa', [
         'controller' => 'KrsMahasiswaController',
         'websafe' => true,
-        'except' => ['show'],
+        'only' => ['index', 'create'],
     ]);
     $routes->presenter('mahasiswa', [
         'controller' => 'MahasiswaController',

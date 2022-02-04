@@ -4,7 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Krs;
 use App\Models\KrsChildren;
+use App\Models\KrsMahasiswa;
 use CodeIgniter\RESTful\ResourceController;
+use Config\Database;
 
 class KrsMahasiswaController extends ResourceController
 {
@@ -16,13 +18,27 @@ class KrsMahasiswaController extends ResourceController
     public function index()
     {
         $krs = (new Krs)->findAll();
+        $db = Database::connect();
 
-        array_map(function ($kr) {
-            $kr->detail = (new KrsChildren)
-                ->select('krs_children.id, matakuliahs.kode_mk, matakuliahs.nama_mk, matakuliahs.sks')
-                ->join('matakuliahs', 'matakuliahs.id = krs_children.mata_kuliah_id', 'left')
-                ->where('krs_id', $kr->id)
-                ->findAll();
+        array_map(function ($kr) use($db) {
+            $kr->detail = $db
+                ->query(
+                    "SELECT krs_children.id, matakuliahs.kode_mk, matakuliahs.nama_mk, matakuliahs.sks, krs_mahasiswas.mahasiswa_id
+                        FROM krs_children
+                        LEFT JOIN matakuliahs ON matakuliahs.id = krs_children.mata_kuliah_id
+                        LEFT JOIN krs_mahasiswas ON krs_children.id = krs_mahasiswas.krs_id
+                        WHERE krs_children.krs_id = ?
+                    UNION
+                        SELECT krs_children.id, matakuliahs.kode_mk, matakuliahs.nama_mk, matakuliahs.sks, krs_mahasiswas.mahasiswa_id
+                        FROM krs_children
+                        LEFT JOIN matakuliahs ON matakuliahs.id = krs_children.mata_kuliah_id
+                        LEFT JOIN krs_mahasiswas ON krs_children.id = krs_mahasiswas.krs_id
+                        WHERE krs_children.krs_id = ?
+                            AND krs_mahasiswas.mahasiswa_id = ?
+                        ",
+                    [$kr->id, $kr->id, session()->user->id]
+                )
+                ->getResultObject();
         }, $krs);
 
         return view('dashboard/krs_mahasiswa/index', [
@@ -57,7 +73,21 @@ class KrsMahasiswaController extends ResourceController
      */
     public function create()
     {
-        //
+        // dd($this->request->getPost())
+        try {
+            $krs_selected = $this->request->getPost('krs_child_id');
+
+            for ($i = 0; $i < count($krs_selected); $i++) {
+                (new KrsMahasiswa)->insert([
+                    'krs_id' => $krs_selected[$i],
+                    'mahasiswa_id' => session()->user->id¡,
+                ]);
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $th->getMessage());
+        }
+
+        return redirect()->back()->with('success', 'Berhasil menyimpan KRS pilihan Anda.');
     }
 
     /**

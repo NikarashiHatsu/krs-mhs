@@ -12,8 +12,8 @@
     <div class="card-body">
         <?php $i = 1; if(count($krs) > 0): ?>
 
-            <?php foreach($krs as $kr): ?>
-                <form action="" method="post">
+            <form action="<?= base_url('dashboard/krs_mahasiswa/create') ?>" method="post">
+                <?php foreach($krs as $kr): ?>
                     <div class="mb-6 border-b" x-data="{ minimized: <?= $kr->semester != session()->user->semester ? 'true' : 'false' ?> }">
                         <div class="flex justify-between items-center mb-6">
                             <h6 class="font-medium">
@@ -54,7 +54,8 @@
                                                 id="krs_child_id"
                                                 class="checkbox checkbox-bordered checkbox-sm"
                                                 value="<?= $mk->id ?>"
-                                                <?= $kr->semester != session()->user->semester ? 'disabled' : '' ?>
+                                                <?= $kr->semester != session()->user->semester || $mk->mahasiswa_id == session()->user->id ? 'disabled' : '' ?>
+                                                <?= $mk->mahasiswa_id == session()->user->id ? 'checked' : '' ?>
                                             >
                                         </td>
                                     </tr>
@@ -68,8 +69,14 @@
                             <?php endif; ?>
                         </table>
                     </div>
-                </form>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+                
+                <div class="flex justify-end">
+                    <button class="btn btn-primary">
+                        Simpan KRS Saya
+                    </button>
+                </div>
+            </form>
 
         <?php else: ?>
             <p>
