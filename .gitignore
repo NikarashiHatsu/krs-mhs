@@ -62,9 +62,6 @@ writable/uploads/*
 
 writable/debugbar/*
 
-public/css/*
-public/js/*
-
 php_errors.log
 
 #-------------------------
@@ -130,3 +127,6 @@ nb-configuration.xml
 
 vendor/
 node_modules/
+
+/public/css/*
+/public/js/*
