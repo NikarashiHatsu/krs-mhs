@@ -130,3 +130,6 @@ nb-configuration.xml
 
 vendor/
 node_modules/
+
+/public/css/*
+/public/js/*
