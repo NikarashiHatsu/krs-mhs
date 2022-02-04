@@ -33,11 +33,15 @@
                     <td><?= $item->nama_mk ?></td>
                     <td><?= $item->sks ?></td>
                     <td><?= $item->kategori ?></td>
-                    <td><?= $item->status  ?></td>
+                    <td><?= $item->status == 1 ? '<div class="badge badge-info">Aktif</div>' : '<div class="badge badge-warning">Non Aktif</div>'  ?></td>
                     <td>
                         <div class="flex justify-center gap-2">
-                            <a href="" class="btn btn-xs btn-warning">Edit</a>
-                            <a href="" class="btn btn-xs btn-error">Hapus</a>
+                            <a href="<?= base_url('dashboard/matakuliah/edit/' . $item->id) ?>" class="btn btn-xs btn-warning">Edit</a>
+                            <form action="<?= base_url('dashboard/matakuliah/delete/' . $item->id) ?>" method="post" class="inline">
+                                <button class="btn btn-xs btn-error">
+                                    Hapus
+                                </button>
+                            </form>
                         </div>
                     </td>
                 </tr>
