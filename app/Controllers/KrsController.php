@@ -19,6 +19,7 @@ class KrsController extends ResourceController
     public function index()
     {
         return view('dashboard/krs/index', [
+            'title' => 'List KRS',
             'krs' => $this->model
                 ->select('krs.id, krs.nama, krs.semester, COUNT(krs_children.krs_id) AS jumlah_mata_kuliah, SUM(matakuliahs.sks) AS jumlah_sks')
                 ->join('krs_children', 'krs_children.krs_id = krs.id', 'left')
@@ -37,6 +38,7 @@ class KrsController extends ResourceController
     public function show($id = null)
     {
         return view('dashboard/krs/show', [
+            'title' => 'Detail KRS',
             'krs' => $this->model->find($id),
             'krs_children' => (new KrsChildren)
                 ->select('matakuliahs.kode_mk, matakuliahs.nama_mk, matakuliahs.sks, krs_children.id')
@@ -53,7 +55,9 @@ class KrsController extends ResourceController
      */
     public function new()
     {
-        return view('dashboard/krs/new');
+        return view('dashboard/krs/new', [
+            'title' => 'Tambah KRS',
+        ]);
     }
 
     /**
@@ -87,6 +91,7 @@ class KrsController extends ResourceController
     public function edit($id = null)
     {
         return view('dashboard/krs/edit', [
+            'title' => 'Edit KRS',
             'krs' => $this->model->find($id),
         ]);
     }

@@ -14,6 +14,7 @@ class DashboardController extends BaseController
         $user = new User();
 
         return view('dashboard/index', [
+            'title' => 'Dashboard',
             'jumlah_mahasiswa' => $user->where('role', 'mahasiswa')->countAllResults(),
             'jumlah_dosen' => $user->where('role', 'dosen')->countAllResults(),
             'jumlah_matakuliah' => (new Matakuliah())->countAll(),

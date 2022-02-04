@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Krs;
-use App\Models\KrsChildren;
 use App\Models\KrsMahasiswa;
 use CodeIgniter\RESTful\ResourceController;
 use Config\Database;
@@ -42,6 +41,7 @@ class KrsMahasiswaController extends ResourceController
         }, $krs);
 
         return view('dashboard/krs_mahasiswa/index', [
+            'title' => 'List KRS Mahasiswa',
             'krs' => $krs,
         ]);
     }
