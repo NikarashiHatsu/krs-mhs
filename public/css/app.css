@@ -1481,6 +1481,16 @@ html {
 .card figure,.card figure>* {
   width: 100%;
 }
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-left: -.25rem;
+  margin-right: -.25rem;
+}
+.card-actions>* {
+  margin: .25rem;
+}
 .card.image-full {
   display: grid;
 }
@@ -2063,6 +2073,12 @@ html {
 .card.compact .card-title {
   margin-bottom: .25rem;
 }
+.card-actions:first-child {
+  margin-bottom: .5rem;
+}
+.card-actions:last-child {
+  margin-top: 1.5rem;
+}
 .checkbox {
   --chkbg: var(--bc);
   --chkfg: var(--b1);
@@ -2482,11 +2498,17 @@ html {
 .block {
   display: block;
 }
+.inline-block {
+  display: inline-block;
+}
 .flex {
   display: flex;
 }
 .table {
   display: table;
+}
+.grid {
+  display: grid;
 }
 .contents {
   display: contents;
@@ -2533,6 +2555,9 @@ html {
 .list-disc {
   list-style-type: disc;
 }
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 .flex-col {
   flex-direction: column;
 }
@@ -2547,6 +2572,9 @@ html {
 }
 .justify-center {
   justify-content: center;
+}
+.gap-4 {
+  gap: 1rem;
 }
 .overflow-y-auto {
   overflow-y: auto;
@@ -2590,6 +2618,21 @@ html {
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+.bg-info {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--in) / var(--tw-bg-opacity));
+}
+.bg-success {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--su) / var(--tw-bg-opacity));
+}
+.bg-error {
+  --tw-bg-opacity: 1;
+  background-color: hsla(var(--er) / var(--tw-bg-opacity));
+}
+.stroke-current {
+  stroke: currentColor;
 }
 .object-contain {
   -o-object-fit: contain;
@@ -2639,6 +2682,10 @@ html {
   --tw-text-opacity: 1;
   color: hsla(var(--bc) / var(--tw-text-opacity));
 }
+.text-primary-content {
+  --tw-text-opacity: 1;
+  color: hsla(var(--pc) / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2650,6 +2697,11 @@ html {
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.shadow-2xl {
+  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .outline {
@@ -2683,6 +2735,22 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 @media (min-width: 1024px) {
+
+  .lg\:card-side {
+    align-items: stretch;
+    flex-direction: row;
+  }
+
+  .lg\:card-side>figure {
+    height: 100%;
+    max-width: none;
+    width: auto;
+  }
+
+  .lg\:card-side>figure>* {
+    width: auto;
+    max-width: none;
+  }
 
   .lg\:hidden {
     display: none;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="wireframe">
 
 <head>
     <meta charset="UTF-8">

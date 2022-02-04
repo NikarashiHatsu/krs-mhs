@@ -30246,11 +30246,19 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
+<<<<<<< HEAD
 /*!
 	By André Rinas, www.andrerinas.de
 	Documentation, www.simplelightbox.de
 	Available for use under the MIT License
 	Version 2.10.1
+=======
+/*!
+	By André Rinas, www.andrerinas.de
+	Documentation, www.simplelightbox.de
+	Available for use under the MIT License
+	Version 2.10.1
+>>>>>>> 6d80c55f15368249a535d0498b571522b44be803
 */
 
 
