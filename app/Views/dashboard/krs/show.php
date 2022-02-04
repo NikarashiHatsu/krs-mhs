@@ -52,9 +52,77 @@
         <!-- END: Section KRS -->
 
         <!-- BEGIN: Section detail KRS -->
-        <h6 class="font-medium">
-            Detail KRS
-        </h6>
+        <div class="flex items-center justify-between mb-6">
+            <h6 class="font-medium">
+                Detail KRS
+            </h6>
+            <form action="<?= base_url('dashboard/krs_children/create') ?>" method="post">
+                <input type="hidden" name="krs_id" value="<?= $krs->id ?>">
+                <select name="mata_kuliah_id" id="mata_kuliah_id" class="select select-bordered select-sm" required>
+                    <option value="">Pilih Mata Kuliah</option>
+                    <?php $i = 1; if(count($mata_kuliahs) > 0): ?>
+                        <?php foreach($mata_kuliahs as $mata_kuliah): ?>
+                            <option value="<?= $mata_kuliah->id ?>">
+                                <?= $mata_kuliah->kode_mk ?> - <?= $mata_kuliah->nama_mk ?>
+                            </option>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <option value="">Belum ada Mata Kuliah yang tersedia</option>
+                    <?php endif; ?>
+                </select>
+                <button type="submit" class="btn btn-sm btn-primary">
+                    Tambah
+                </button>
+            </form>
+        </div>
+        <table class="table table-zebra table-compact w-full">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kode Mata Kuliah</th>
+                    <th>Mata Kuliah</th>
+                    <th>Jumlah SKS</th>
+                    <th>Opsi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1; $jumlah_sks = 0; if(count($krs_children) > 0): ?>
+                    <?php foreach($krs_children as $krs_child): ?>
+                        <?php $jumlah_sks += $krs_child->sks ?>
+                        <tr>
+                            <td><?= $i++ ?></td>
+                            <td><?= $krs_child->kode_mk ?></td>
+                            <td><?= $krs_child->nama_mk ?></td>
+                            <td><?= $krs_child->sks ?></td>
+                            <td>
+                                <form action="<?= base_url('dashboard/krs_children/delete/' . $krs_child->id) ?>" method="post" class="inline">
+                                    <button class="btn btn-xs btn-error">
+                                        Hapus
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            Belum ada mata kuliah yang ditambahkan ke KRS ini.
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="3">
+                        Jumlah SKS:
+                    </th>
+                    <th>
+                        <?= $jumlah_sks ?>
+                    </th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
         <!-- END: Section detail KRS -->
     </div>
 </div>

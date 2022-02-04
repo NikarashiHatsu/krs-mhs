@@ -45,6 +45,11 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
         'controller' => 'KrsController',
         'websafe' => true,
     ]);
+    $routes->presenter('krs_children', [
+        'controller' => 'KrsChildrenController',
+        'websafe' => true,
+        'only' => ['create', 'delete'],
+    ]);
     $routes->presenter('matakuliah', [
         'controller' => 'MatakuliahController',
         'websafe' => true,
