@@ -18,6 +18,7 @@ class KrsController extends ResourceController
     {
         return view('dashboard/krs/index', [
             'krs' => $this->model->findAll(),
+            'datatable' => true,
         ]);
     }
 

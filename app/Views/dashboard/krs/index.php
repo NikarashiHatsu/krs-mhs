@@ -15,7 +15,7 @@
 
 <div class="card bg-base-100 border">
     <div class="card-body">
-        <table class="table table-zebra w-full" id="dataTable">
+        <table class="table table-zebra table-compact w-full" id="dataTable">
             <thead>
                 <tr>
                     <th>No</th>
@@ -32,11 +32,11 @@
                             <td><?= $kr->nama ?></td>
                             <td><?= $kr->semester ?></td>
                             <td>
-                                <a href="<?= base_url('dashboard/krs/edit/' . $kr->id) ?>" class="btn btn-sm btn-info">
+                                <a href="<?= base_url('dashboard/krs/edit/' . $kr->id) ?>" class="btn btn-xs btn-info">
                                     Edit
                                 </a>
                                 <form action="<?= base_url('dashboard/krs/delete/' . $kr->id) ?>" method="post" class="inline">
-                                    <button href="<?= base_url('/krs/' . $kr->id) ?>" class="btn btn-sm btn-error">
+                                    <button href="<?= base_url('/krs/' . $kr->id) ?>" class="btn btn-xs btn-error">
                                         Hapus
                                     </button>
                                 </form>
