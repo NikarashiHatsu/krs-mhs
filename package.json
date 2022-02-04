@@ -12,6 +12,7 @@
     "alpinejs": "^3.8.1",
     "autoprefixer": "^10.4.2",
     "daisyui": "^1.24.3",
+    "datatables.net": "^1.11.4",
     "jquery": "^3.6.0",
     "laravel-mix": "^6.0.41",
     "lodash": "^4.17.21",
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "chartjs": "^0.3.24",
-    "chartjs-plugin-datalabels": "^2.0.0"
+    "chartjs-plugin-datalabels": "^2.0.0",
+    "datatables.net-dt": "^1.11.4"
   }
 }
