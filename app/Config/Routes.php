@@ -46,6 +46,10 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
         'websafe' => true,
         'except' => ['show'],
     ]);
+    $routes->presenter('matakuliah', [
+        'controller' => 'MatakuliahController',
+        'websafe' => true,
+    ]);
 });
 
 /*
