@@ -4,21 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Mahasiswa extends Model
+class Dosen extends Model
 {
     protected $table      = 'users';
     protected $primaryKey = 'id';
 
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['foto', 'name', 'nim', 'angkatan', 'semester', 'username', 'password'];
+    protected $allowedFields = ['foto', 'name', 'nip', 'username', 'alamat', 'telepon', 'password'];
 
     protected $validationRules = [
         'foto' => 'permit_empty',
         'username' => 'required',
         'name' => 'required',
-        'nim' => 'required',
-        'angkatan' => 'required',
-        'semester' => 'required',
+        'nip' => 'required',
+        'alamat' => 'required',
+        'telepon' => 'required',
         'password' => 'permit_empty',
     ];
 
@@ -29,14 +29,14 @@ class Mahasiswa extends Model
         'name' => [
             'required' => 'Nama Harus Diisi!'
         ],
-        'nim' => [
-            'required' => 'NIM Harus Diisi!'
+        'nip' => [
+            'required' => 'NIP Harus Diisi!'
         ],
-        'angkatan' => [
-            'required' => 'Angkatan Harus Diisi!'
+        'alamat' => [
+            'required' => 'Alamat Harus Diisi!'
         ],
-        'semester' => [
-            'required' => 'Semester Harus Diisi!'
+        'telepon' => [
+            'required' => 'Telepon Harus Diisi!'
         ]
     ];
 }
