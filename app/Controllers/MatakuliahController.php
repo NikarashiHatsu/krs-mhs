@@ -35,7 +35,7 @@ class MatakuliahController extends BaseController
     {
         $status = ($this->request->getPost('status')) ? 1 : 0;
         $data = [
-            'no_mk' => $this->request->getPost('no_mk'),
+            'kode_mk' => $this->request->getPost('kode_mk'),
             'nama_mk' => $this->request->getPost('nama_mk'),
             'status' => $status,
             'sks' => $this->request->getPost('sks'),

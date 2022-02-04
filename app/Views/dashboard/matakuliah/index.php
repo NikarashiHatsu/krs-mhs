@@ -26,34 +26,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>MTK</td>
-                        <td>Matematika</td>
-                        <td>3</td>
-                        <td>Wajib</td>
-                        <td>Aktif</td>
-                        <td>
-                            <div class="flex justify-center gap-2">
-                                <a href="" class="btn btn-xs btn-warning">Edit</a>
-                                <a href="" class="btn btn-xs btn-error">Hapus</a>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>MTK</td>
-                        <td>Matematika</td>
-                        <td>3</td>
-                        <td>Wajib</td>
-                        <td>Aktif</td>
-                        <td>
-                            <div class="flex justify-center gap-2">
-                                <a href="" class="btn btn-xs btn-warning">Edit</a>
-                                <a href="" class="btn btn-xs btn-error">Hapus</a>
-                            </div>
-                        </td>
-                    </tr>
+                <?php foreach($matakuliah as $item): ?>
+                <tr>
+                    <td><?= $item->id ?></td>
+                    <td><?= $item->kode_mk ?></td>
+                    <td><?= $item->nama_mk ?></td>
+                    <td><?= $item->sks ?></td>
+                    <td><?= $item->kategori ?></td>
+                    <td><?= $item->status  ?></td>
+                    <td>
+                        <div class="flex justify-center gap-2">
+                            <a href="" class="btn btn-xs btn-warning">Edit</a>
+                            <a href="" class="btn btn-xs btn-error">Hapus</a>
+                        </div>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
