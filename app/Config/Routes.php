@@ -63,6 +63,10 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
         'controller' => 'MahasiswaController',
         'websafe' => true,
     ]);
+    $routes->presenter('dosen', [
+        'controller' => 'DosenController',
+        'websafe' => true,
+    ]);
 });
 
 /*
