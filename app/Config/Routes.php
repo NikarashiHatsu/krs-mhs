@@ -44,11 +44,20 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
     $routes->presenter('krs', [
         'controller' => 'KrsController',
         'websafe' => true,
-        'except' => ['show'],
+    ]);
+    $routes->presenter('krs_children', [
+        'controller' => 'KrsChildrenController',
+        'websafe' => true,
+        'only' => ['create', 'delete'],
     ]);
     $routes->presenter('matakuliah', [
         'controller' => 'MatakuliahController',
         'websafe' => true,
+    ]);
+    $routes->presenter('krs_mahasiswa', [
+        'controller' => 'KrsMahasiswaController',
+        'websafe' => true,
+        'except' => ['show'],
     ]);
     $routes->presenter('mahasiswa', [
         'controller' => 'MahasiswaController',

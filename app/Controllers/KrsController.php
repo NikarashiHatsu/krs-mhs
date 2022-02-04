@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Krs;
+use App\Models\KrsChildren;
+use App\Models\Matakuliah;
 use CodeIgniter\RESTful\ResourceController;
 
 class KrsController extends ResourceController
@@ -17,7 +19,30 @@ class KrsController extends ResourceController
     public function index()
     {
         return view('dashboard/krs/index', [
-            'krs' => $this->model->findAll(),
+            'krs' => $this->model
+                ->select('krs.id, krs.nama, krs.semester, COUNT(krs_children.krs_id) AS jumlah_mata_kuliah, SUM(matakuliahs.sks) AS jumlah_sks')
+                ->join('krs_children', 'krs_children.krs_id = krs.id', 'left')
+                ->join('matakuliahs', 'krs_children.mata_kuliah_id = matakuliahs.id', 'left')
+                ->groupBy('krs.id')
+                ->findAll(),
+            'datatable' => true,
+        ]);
+    }
+
+    /**
+     * Return the properties of a resource object
+     *
+     * @return mixed
+     */
+    public function show($id = null)
+    {
+        return view('dashboard/krs/show', [
+            'krs' => $this->model->find($id),
+            'krs_children' => (new KrsChildren)
+                ->select('matakuliahs.kode_mk, matakuliahs.nama_mk, matakuliahs.sks, krs_children.id')
+                ->join('matakuliahs', 'krs_children.mata_kuliah_id = matakuliahs.id')
+                ->where('krs_id', $id)->findAll(),
+            'mata_kuliahs' => (new Matakuliah)->asObject()->findAll(),
         ]);
     }
 
