@@ -83,6 +83,7 @@
                         </a>
                     </li>
 
+                    <?php if(session()->user->role != 'mahasiswa'): ?>
                     <li class="menu-title mt-4">
                         <span>
                             Master Data
@@ -118,6 +119,7 @@
                             </span>
                         </a>
                     </li>
+                    <?php endif; ?>
 
                     <li class="menu-title mt-4">
                         <span>

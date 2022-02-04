@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\Krs;
+use App\Models\KrsChildren;
 use CodeIgniter\RESTful\ResourceController;
 
 class KrsMahasiswaController extends ResourceController
@@ -13,7 +15,19 @@ class KrsMahasiswaController extends ResourceController
      */
     public function index()
     {
-        //
+        $krs = (new Krs)->findAll();
+
+        array_map(function ($kr) {
+            $kr->detail = (new KrsChildren)
+                ->select('krs_children.id, matakuliahs.kode_mk, matakuliahs.nama_mk, matakuliahs.sks')
+                ->join('matakuliahs', 'matakuliahs.id = krs_children.mata_kuliah_id', 'left')
+                ->where('krs_id', $kr->id)
+                ->findAll();
+        }, $krs);
+
+        return view('dashboard/krs_mahasiswa/index', [
+            'krs' => $krs,
+        ]);
     }
 
     /**
