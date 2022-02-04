@@ -8,9 +8,10 @@
 </h6>
 
 <div class="grid grid-cols-3 gap-4">
-    <div class=" card shadow-2xl lg:card-side bg-info text-primary-content">
+    <div class=" card shadow-2xl lg:card-side bg-slate-600">
       <div class="card-body">
-        <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p> 
+        <p class="text-gray-50 text-lg mb-2">Jumlah Mahasiswa</p> 
+        <p class="text-gray-50 text-5xl">10</p> 
         <div class="justify-end card-actions">
           <button class="btn btn-primary">
                 More info
@@ -22,9 +23,10 @@
         </div>
       </div>
     </div>
-    <div class=" card shadow-2xl lg:card-side bg-success text-primary-content">
+    <div class=" card shadow-2xl lg:card-side bg-red-600">
       <div class="card-body">
-        <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p> 
+      <p class="text-gray-50 text-lg mb-2">Jumlah Dosen</p> 
+        <p class="text-gray-50 text-5xl">15</p> 
         <div class="justify-end card-actions">
           <button class="btn btn-primary">
                 More info
@@ -36,9 +38,10 @@
         </div>
       </div>
     </div>
-    <div class=" card shadow-2xl lg:card-side bg-error text-primary-content">
+    <div class=" card shadow-2xl lg:card-side bg-emerald-600">
       <div class="card-body">
-        <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos.</p> 
+      <p class="text-gray-50 text-lg mb-2">Jumlah Matakuliah</p> 
+        <p class="text-gray-50 text-5xl">12</p> 
         <div class="justify-end card-actions">
           <button class="btn btn-primary">
                 More info
