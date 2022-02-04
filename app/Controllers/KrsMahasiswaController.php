@@ -73,14 +73,14 @@ class KrsMahasiswaController extends ResourceController
      */
     public function create()
     {
-        // dd($this->request->getPost())
         try {
             $krs_selected = $this->request->getPost('krs_child_id');
+            $user_id = session()->user->id;
 
             for ($i = 0; $i < count($krs_selected); $i++) {
                 (new KrsMahasiswa)->insert([
                     'krs_id' => $krs_selected[$i],
-                    'mahasiswa_id' => session()->user->id¡,
+                    'mahasiswa_id' => $user_id,
                 ]);
             }
         } catch (\Throwable $th) {
