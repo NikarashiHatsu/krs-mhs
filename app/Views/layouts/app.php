@@ -13,7 +13,7 @@
     <script src="<?= base_url('js/app-non-defer.js') ?>"></script>
 
     <?php if(isset($datatable)): ?>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">        \
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
         <style>
             .dataTable  {
                 padding-top: 1rem !important;
