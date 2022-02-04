@@ -50,6 +50,11 @@ $routes->group('dashboard', ['filter' => 'auth'], function ($routes) {
         'controller' => 'MatakuliahController',
         'websafe' => true,
     ]);
+    $routes->presenter('krs_mahasiswa', [
+        'controller' => 'KrsMahasiswaController',
+        'websafe' => true,
+        'except' => ['show'],
+    ]);
 });
 
 /*

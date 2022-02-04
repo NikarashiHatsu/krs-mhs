@@ -110,6 +110,14 @@
                             </span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?= base_url('/dashboard/krs_mahasiswa') ?>" class="<?= current_url(true)->getSegment(2) == 'krs_mahasiswa' ? 'active' : '' ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="32" y1="64" x2="32" y2="144" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M54.2,216a88.1,88.1,0,0,1,147.6,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><polygon points="224 64 128 96 32 64 128 32 224 64" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon><path d="M169.3,82.2a56,56,0,1,1-82.6,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+                            <span class="ml-2">
+                                KRS Mahasiswa
+                            </span>
+                        </a>
+                    </li>
 
                     <li class="menu-title mt-4">
                         <span>
