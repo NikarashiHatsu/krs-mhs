@@ -14,7 +14,10 @@
 
             <form action="<?= base_url('dashboard/krs_mahasiswa/create') ?>" method="post">
                 <?php foreach($krs as $kr): ?>
-                    <div class="mb-6 border-b" x-data="{ minimized: <?= $kr->semester != session()->user->semester ? 'true' : 'false' ?> }">
+                    <div class="mb-6 border-b" x-data="{
+                            minimized: <?= $kr->semester != session()->user->semester ? 'true' : 'false' ?>,
+                            locked: false,
+                        }">
                         <div class="flex justify-between items-center mb-6">
                             <h6 class="font-medium">
                                 <?= $kr->nama ?>
@@ -49,6 +52,7 @@
                                         <td><?= $mk->sks ?></td>
                                         <td class="flex">
                                             <input
+                                                x-bind:disabled="locked"
                                                 type="checkbox"
                                                 name="krs_child_id[]"
                                                 id="krs_child_id"
@@ -57,6 +61,9 @@
                                                 <?= $kr->semester != session()->user->semester || $mk->mahasiswa_id == session()->user->id ? 'disabled' : '' ?>
                                                 <?= $mk->mahasiswa_id == session()->user->id ? 'checked' : '' ?>
                                             >
+                                            <?php if($mk->mahasiswa_id): ?>
+                                                <span x-init="locked = true"></span>
+                                            <?php endif; ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -70,7 +77,7 @@
                         </table>
                     </div>
                 <?php endforeach; ?>
-                
+
                 <div class="flex justify-end">
                     <button class="btn btn-primary">
                         Simpan KRS Saya
