@@ -177,7 +177,7 @@
         </div>
     </div>
 
-    <!-- <script type="module">
+    <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
 
@@ -193,8 +193,11 @@
 
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-    </script> -->
-</body>
+    </script>
 
+    <script>
+        console.log("Copyright 2022: Developer's note on behalf of Shiroyuki.dev and Aghits Nidallah");
+    </script>
+</body>
 
 </html>
