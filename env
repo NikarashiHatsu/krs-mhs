@@ -22,6 +22,7 @@
 
 # app.baseURL = ''
 # app.name = 'App Name'
+# app.theme = ""
 # app.forceGlobalSecureRequests = false
 
 # app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
