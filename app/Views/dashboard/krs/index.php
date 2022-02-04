@@ -21,6 +21,7 @@
                     <th>No</th>
                     <th>Nama KRS</th>
                     <th>Semester</th>
+                    <th>Total KRS</th>
                     <th>Opsi</th>
                 </tr>
             </thead>
@@ -31,8 +32,12 @@
                             <td><?= $i++ ?></td>
                             <td><?= $kr->nama ?></td>
                             <td><?= $kr->semester ?></td>
+                            <td>0</td>
                             <td>
-                                <a href="<?= base_url('dashboard/krs/edit/' . $kr->id) ?>" class="btn btn-xs btn-info">
+                                <a href="<?= base_url('dashboard/krs/' . $kr->id) ?>" class="btn btn-xs btn-info">
+                                    Detail
+                                </a>
+                                <a href="<?= base_url('dashboard/krs/edit/' . $kr->id) ?>" class="btn btn-xs btn-success">
                                     Edit
                                 </a>
                                 <form action="<?= base_url('dashboard/krs/delete/' . $kr->id) ?>" method="post" class="inline">

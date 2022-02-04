@@ -23,6 +23,18 @@ class KrsController extends ResourceController
     }
 
     /**
+     * Return the properties of a resource object
+     *
+     * @return mixed
+     */
+    public function show($id = null)
+    {
+        return view('dashboard/krs/show', [
+            'krs' => $this->model->find($id),
+        ]);
+    }
+
+    /**
      * Return a new resource object, with default properties
      *
      * @return mixed
