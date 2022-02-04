@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
         ]);
 
         $this->forge->createTable('users');
+        
     }
 
     public function down()
