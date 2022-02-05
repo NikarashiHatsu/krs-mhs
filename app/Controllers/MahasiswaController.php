@@ -20,6 +20,7 @@ class MahasiswaController extends BaseController
     {
         $model = $this->mahasiswa;
         $data['datatable'] = true;
+        $data['typed_title'] = true;
         $data['mahasiswa'] = $model->where('role', 'mahasiswa')->findAll();
         $data['title'] = 'List Mahasiswa';
 		echo view('dashboard/mahasiswa/index', $data);

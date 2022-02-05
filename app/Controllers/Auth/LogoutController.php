@@ -12,9 +12,9 @@ class LogoutController extends BaseController
         try {
             new LogOutUser();
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'An error occured: ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Telah terjadi error: ' . $th->getMessage());
         }
 
-        return redirect()->to('/login')->with('success', 'Logged out successfully.');
+        return redirect()->to('/login')->with('success', 'Berhasil logout.');
     }
 }

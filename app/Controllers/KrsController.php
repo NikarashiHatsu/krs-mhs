@@ -20,6 +20,7 @@ class KrsController extends ResourceController
     {
         return view('dashboard/krs/index', [
             'title' => 'List KRS',
+            'typed_title' => true,
             'krs' => $this->model
                 ->select('krs.id, krs.nama, krs.semester, COUNT(krs_children.krs_id) AS jumlah_mata_kuliah, SUM(matakuliahs.sks) AS jumlah_sks')
                 ->join('krs_children', 'krs_children.krs_id = krs.id', 'left')

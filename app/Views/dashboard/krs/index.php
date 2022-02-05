@@ -6,7 +6,7 @@
 
 <div class="flex items-center justify-between mb-6">
     <h6 class="text-lg font-medium">
-        Master KRS
+        <span id="typed_title"></span>
     </h6>
     <a href="<?= base_url('dashboard/krs/new') ?>" class="btn btn-primary">
         Tambah

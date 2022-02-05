@@ -3,13 +3,12 @@
 <?= $this->section('content') ?>
 <div class="flex justify-center mb-6">
     <a href="<?= base_url('/') ?>">
-        <img
-            src="<?= base_url('/icon.png') ?>"
-            class="w-24 h-24"
-            alt="KRS App"
-            style="width: 150px;"
-        />
+        <img src="<?= base_url('/icon.png') ?>" alt="KRS App" style="width: 150px;">
     </a>
+    <br>
+</div>
+<div class="text-center mb-2">
+    <span id="typed_title"></span>
 </div>
 
 <div class="card bg-base-100 shadow">
@@ -23,14 +22,8 @@
                         Username
                     </span>
                 </label>
-                <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    class="input input-bordered"
-                    value="<?= old('name') ?>"
-                    required
-                >
+                <input type="text" name="username" id="username" class="input input-bordered" value="<?= old('name') ?>"
+                    required autocomplete="off">
             </div>
 
             <div class="div form-control mb-6">
@@ -39,13 +32,7 @@
                         Password
                     </span>
                 </label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="input input-bordered"
-                    required
-                >
+                <input type="password" name="password" id="password" class="input input-bordered" required>
             </div>
 
             <div class="flex items-center justify-end text-sm">

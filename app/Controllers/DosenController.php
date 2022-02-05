@@ -20,6 +20,7 @@ class DosenController extends BaseController
     {
         $model = $this->dosen;
         $data['datatable'] = true;
+        $data['typed_title'] = true;
         $data['dosen'] = $model->where('role', 'dosen')->findAll();
         $data['title'] = 'List Dosen';
 		echo view('dashboard/dosen/index', $data);

@@ -40,8 +40,15 @@ class KrsMahasiswaController extends ResourceController
                 ->getResultObject();
         }, $krs);
 
+        if (session()->user->role == 'user') {
+            $title = 'Fitur Ini Hanya Bisa Digunakan oleh Mahasiswa';
+        } else {
+            $title = 'KRS Saya';
+        }
+
         return view('dashboard/krs_mahasiswa/index', [
-            'title' => 'List KRS Mahasiswa',
+            'title' => $title,
+            'typed_title' => true,
             'krs' => $krs,
         ]);
     }

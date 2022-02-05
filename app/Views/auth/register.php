@@ -6,6 +6,9 @@
         <img src="<?= base_url('/icon.png') ?>" alt="KRS App" style="width: 150px;">
     </a>
 </div>
+<div class="text-center mb-2">
+    <span id="typed_title"></span>
+</div>
 
 <div class="card bg-base-100 shadow">
     <div class="card-body">

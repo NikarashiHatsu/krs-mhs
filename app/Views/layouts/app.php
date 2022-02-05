@@ -10,6 +10,92 @@
     <link rel="stylesheet" href="<?= base_url('css/app.css') ?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <script src="<?= base_url('js/app.js') ?>" defer></script>
+
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey; 
+        border-radius: 10px;
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #475569; 
+        border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: #b30000; 
+        }
+
+        @keyframes terbang1 {
+            0% {
+                transform: translatey(0px);
+            }
+            40% {
+                transform: translatey(-20px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        .card-dashboard-2 {
+            animation: terbang2 3s ease-in-out infinite;
+        }
+        @keyframes terbang2 {
+            0% {
+                transform: translatey(0px);
+            }
+            50% {
+                transform: translatey(-20px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        .card-dashboard-3 {
+            animation: terbang3 3s ease-in-out infinite;
+        }
+        @keyframes terbang3 {
+            00% {
+                transform: translatey(0px);
+            }
+            60% {
+                transform: translatey(-20px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        .card-dashboard-4 {
+            animation: terbang4 3s ease-in-out infinite;
+        }
+        @keyframes terbang4 {
+            0% {
+                transform: translatey(0px);
+            }
+            70% {
+                transform: translatey(-20px);
+            }
+            100% {
+                transform: translatey(0px);
+            }
+        }
+
+        .card-dashboard-1 {
+            animation: terbang1 3s ease-in-out infinite;
+        }
+
+    </style>
 </head>
 
 <body class="font-display antialiased text-base-content">
@@ -18,7 +104,7 @@
         <main class="drawer-content bg-base-200">
             <div class="flex lg:hidden items-center mb-4 h-16 bg-base-100/50 backdrop-blur-lg border-b border-base-300 px-6 sticky top-0 z-10">
                 <label for="drawer" class="cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -50,7 +136,7 @@
                                 <?= session()->user->name ?>
                             </span>
                             <span class="text-xs">
-                                <?= ucwords(str_replace('_', ' ', session()->user->role)) ?>
+                                <?= ucwords(str_replace('_', ' ', session()->user->role == 'user' ? 'Admin' : session()->user->role)) ?>
                             </span>
                         </div>
                     </div>
@@ -89,18 +175,7 @@
                             </span>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?= base_url('/dashboard/krs') ?>" class="<?= current_url(true)->getSegment(2) == 'krs' ? 'active' : '' ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                            </svg>
-                            <span class="ml-2">
-                                KRS
-                            </span>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a href="<?= base_url('/dashboard/mahasiswa') ?>" class="<?= current_url(true)->getSegment(2) == 'mahasiswa' ? 'active' : '' ?>">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 256 256" stroke="currentColor">
@@ -128,6 +203,18 @@
                             </span>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?= base_url('/dashboard/krs') ?>" class="<?= current_url(true)->getSegment(2) == 'krs' ? 'active' : '' ?>">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                            </svg>
+                            <span class="ml-2">
+                                KRS
+                            </span>
+                        </a>
+                    </li>
                     <?php endif; ?>
 
                     <li class="menu-title mt-4">
@@ -149,6 +236,7 @@
                             </span>
                         </a>
                     </li>
+                    
 
                     <li class="menu-title mt-4">
                         <span>
@@ -176,6 +264,30 @@
             </aside>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        var options = {
+        strings: ['Hai <?= session()->user->name ?>', 'Selamat Datang di Aplikasi KRS.'],
+        typeSpeed: 40,
+        loop: true
+        };
+
+        var typed = new Typed('#typed', options);
+    </script>
+
+    <?php if(isset($typed_title)): ?>
+        <script>
+        var options = {
+            strings: ['<?= $title ?>', 'Selamat Datang di Aplikasi KRS.'],
+            typeSpeed: 40,
+            loop: true
+            };
+
+            var typed = new Typed('#typed_title', options);
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

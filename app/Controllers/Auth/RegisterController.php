@@ -11,7 +11,8 @@ class RegisterController extends BaseController
     public function index()
     {
         return view('auth/register', [
-            'title' => 'Register',
+            'title' => 'REGISTER',
+            'typed_title' => true
         ]);
     }
 
@@ -27,9 +28,9 @@ class RegisterController extends BaseController
         try {
             new RegisterUser($this->request->getPost());
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'An error has occured: ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Telah terjadi error: ' . $th->getMessage());
         }
 
-        return redirect()->to('/login')->with('success', 'You have successfully registered. Please login.');
+        return redirect()->to('/login')->with('success', 'Berhasil registrasi akun, silahkan login.');
     }
 }

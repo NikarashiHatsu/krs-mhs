@@ -5,7 +5,7 @@
 <?= $this->include('components/alerts') ?>
 <div class="flex justify-between">
     <h6 class="text-lg font-medium mb-6 ">
-        <?= $title ?>
+        <span id="typed_title"></span>
     </h6>
     <a href="<?= base_url('/dashboard/matakuliah/new') ?>" class="btn btn-info">Tambah</a>
 </div>

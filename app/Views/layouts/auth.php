@@ -16,26 +16,18 @@
         <?= $this->renderSection('content') ?>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyADnNR4R3w3SJUr_FmnV01caif2fizhqxs",
-            authDomain: "shiroyuki-dev.firebaseapp.com",
-            projectId: "shiroyuki-dev",
-            storageBucket: "shiroyuki-dev.appspot.com",
-            messagingSenderId: "17647753783",
-            appId: "1:17647753783:web:495b06d5daa5a58bbbbdb2",
-            measurementId: "G-2EKN24QML2"
-        };
+    <?php if(isset($typed_title)): ?>
+        <script>
+        var options = {
+            strings: ['<?= $title ?>', 'Selamat Datang di Aplikasi KRS.', 'Muhamad Ahmadin 190511024 K1'],
+            typeSpeed: 40,
+            loop: true
+            };
 
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
-
-    <script>
-        console.log("Copyright 2022: Developer's note on behalf of Shiroyuki.dev and Aghits Nidallah");
-    </script>
+            var typed = new Typed('#typed_title', options);
+        </script>
+    <?php endif; ?>
 </body>
 </html>

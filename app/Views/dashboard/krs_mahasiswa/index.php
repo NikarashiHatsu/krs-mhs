@@ -5,7 +5,7 @@
 <?= $this->include('components/alerts') ?>
 
 <h6 class="text-lg font-medium mb-6">
-    KRS Saya (Semester <?= session()->user->semester ?>)
+<span id="typed_title"></span>
 </h6>
 
 <div class="card bg-base-100 border">

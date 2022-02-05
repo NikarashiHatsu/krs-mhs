@@ -11,7 +11,8 @@ class LoginController extends BaseController
     public function index()
     {
         return view('auth/login', [
-            'title' => 'Login',
+            'title' => 'LOGIN',
+            'typed_title' => true
         ]);
     }
 
@@ -27,9 +28,9 @@ class LoginController extends BaseController
         try {
             new LogInUser($this->request);
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'An error has occured: ' . $th->getMessage());
+            return redirect()->back()->with('error', 'Telah terjadi error: ' . $th->getMessage());
         }
 
-        return redirect()->to('/dashboard')->with('success', 'You have successfully logged in.');
+        return redirect()->to('/dashboard')->with('success', 'Selamat, anda berhasil melakukan login.');
     }
 }

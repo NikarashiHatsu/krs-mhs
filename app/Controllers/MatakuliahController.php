@@ -20,6 +20,7 @@ class MatakuliahController extends BaseController
     {
         $model = $this->matakuliah;
         $data['datatable'] = true;
+        $data['typed_title'] = true;
         $data['matakuliah'] = $model->findAll();
         $data['title'] = 'List Mata Kuliah';
 		echo view('dashboard/matakuliah/index', $data);

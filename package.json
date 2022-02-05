@@ -24,6 +24,7 @@
   "dependencies": {
     "chartjs": "^0.3.24",
     "chartjs-plugin-datalabels": "^2.0.0",
-    "datatables.net-dt": "^1.11.4"
+    "datatables.net-dt": "^1.11.4",
+    "typed.js": "^2.0.12"
   }
 }
