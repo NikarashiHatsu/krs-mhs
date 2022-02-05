@@ -16,7 +16,7 @@
                 <?php foreach($krs as $kr): ?>
                     <div class="mb-6 border-b" x-data="{
                             minimized: <?= $kr->semester != session()->user->semester ? 'true' : 'false' ?>,
-                            locked: false,
+                            locked: <?= $kr->semester == session()->user->semester ? 'false' : 'true' ?>,
                         }">
                         <div class="flex justify-between items-center mb-6">
                             <h6 class="font-medium">
@@ -43,8 +43,9 @@
                                     <th>Opsi</th>
                                 </tr>
                             </thead>
-                            <?php $i = 1; if(count($kr->detail) > 0): ?>
+                            <?php $i = 1; $jumlah_sks = 0; if(count($kr->detail) > 0): ?>
                                 <?php foreach($kr->detail as $mk): ?>
+                                    <?php $jumlah_sks += $mk->sks ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
                                         <td><?= $mk->kode_mk ?></td>
@@ -74,6 +75,13 @@
                                     </td>
                                 </tr>
                             <?php endif; ?>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="3">Jumlah SKS</th>
+                                    <th><?= $jumlah_sks ?></th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 <?php endforeach; ?>

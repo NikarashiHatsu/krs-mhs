@@ -5,21 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= env('app.name') ?></title>
-    <link rel="shortcut icon" href="<?= base_url('/icon.png') ?>" type="image/x-icon">
+    <title><?= $title ?? env('app.name') ?></title>
+    <link rel="shortcut icon" href="<?= base_url('/icon.svg') ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?= base_url('css/app.css') ?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <script src="<?= base_url('js/app.js') ?>" defer></script>
-    <script src="<?= base_url('js/app-non-defer.js') ?>"></script>
-
-    <?php if(isset($datatable)): ?>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-        <style>
-            .dataTable  {
-                padding-top: 1rem !important;
-            }
-        </style>
-    <?php endif;?>
 </head>
 
 <body class="font-display antialiased text-base-content">
@@ -113,7 +103,13 @@
                     </li>
                     <li>
                         <a href="<?= base_url('/dashboard/mahasiswa') ?>" class="<?= current_url(true)->getSegment(2) == 'mahasiswa' ? 'active' : '' ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="32" y1="64" x2="32" y2="144" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M54.2,216a88.1,88.1,0,0,1,147.6,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><polygon points="224 64 128 96 32 64 128 32 224 64" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon><path d="M169.3,82.2a56,56,0,1,1-82.6,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 256 256" stroke="currentColor">
+                                <rect width="256" height="256" fill="none" stroke="none"></rect>
+                                <line x1="32" y1="64" x2="32" y2="144" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <path d="M54.2,216a88.1,88.1,0,0,1,147.6,0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                                <polygon points="224 64 128 96 32 64 128 32 224 64" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon>
+                                <path d="M169.3,82.2a56,56,0,1,1-82.6,0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            </svg>
                             <span class="ml-2">
                                 Mahasiswa
                             </span>
@@ -121,10 +117,11 @@
                     </li>
                     <li>
                         <a href="<?= base_url('/dashboard/dosen') ?>" class="<?= current_url(true)->getSegment(2) == 'dosen' ? 'active' : '' ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 256 256" stroke="currentColor">
+                                <rect width="256" height="256" fill="none" stroke="none"></rect>
+                                <circle cx="104" cy="144" r="32" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle>
+                                <path d="M53.4,208a56,56,0,0,1,101.2,0H216a8,8,0,0,0,8-8V56a8,8,0,0,0-8-8H40a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                                <polyline points="176 176 192 176 192 80 64 80 64 96" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
                             </svg>
                             <span class="ml-2">
                                 Dosen
@@ -140,7 +137,13 @@
                     </li>
                     <li>
                         <a href="<?= base_url('/dashboard/krs_mahasiswa') ?>" class="<?= current_url(true)->getSegment(2) == 'krs_mahasiswa' ? 'active' : '' ?>">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="32" y1="64" x2="32" y2="144" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M54.2,216a88.1,88.1,0,0,1,147.6,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><polygon points="224 64 128 96 32 64 128 32 224 64" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon><path d="M169.3,82.2a56,56,0,1,1-82.6,0" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 256 256" stroke="currentColor">
+                                <rect width="256" height="256" fill="none" stroke="none"></rect>
+                                <line x1="32" y1="64" x2="32" y2="144" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                                <path d="M54.2,216a88.1,88.1,0,0,1,147.6,0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                                <polygon points="224 64 128 96 32 64 128 32 224 64" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polygon>
+                                <path d="M169.3,82.2a56,56,0,1,1-82.6,0" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path>
+                            </svg>
                             <span class="ml-2">
                                 KRS Mahasiswa
                             </span>
@@ -173,17 +176,28 @@
             </aside>
         </div>
     </div>
-    
-    <?php if(isset($datatable)): ?>
-        <script defer src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    
-        <script>
-            $(document).ready(function () {
-                $('#dataTable').DataTable();
-            });
-        </script>
-    <?php endif; ?>
-</body>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyADnNR4R3w3SJUr_FmnV01caif2fizhqxs",
+            authDomain: "shiroyuki-dev.firebaseapp.com",
+            projectId: "shiroyuki-dev",
+            storageBucket: "shiroyuki-dev.appspot.com",
+            messagingSenderId: "17647753783",
+            appId: "1:17647753783:web:495b06d5daa5a58bbbbdb2",
+            measurementId: "G-2EKN24QML2"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script>
+
+    <script>
+        console.log("Copyright 2022: Developer's note on behalf of Shiroyuki.dev and Aghits Nidallah");
+    </script>
+</body>
 
 </html>
