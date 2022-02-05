@@ -176,28 +176,6 @@
             </aside>
         </div>
     </div>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyADnNR4R3w3SJUr_FmnV01caif2fizhqxs",
-            authDomain: "shiroyuki-dev.firebaseapp.com",
-            projectId: "shiroyuki-dev",
-            storageBucket: "shiroyuki-dev.appspot.com",
-            messagingSenderId: "17647753783",
-            appId: "1:17647753783:web:495b06d5daa5a58bbbbdb2",
-            measurementId: "G-2EKN24QML2"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
-
-    <script>
-        console.log("Copyright 2022: Developer's note on behalf of Shiroyuki.dev and Aghits Nidallah");
-    </script>
 </body>
 
 </html>
