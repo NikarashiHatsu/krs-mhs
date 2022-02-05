@@ -126,12 +126,13 @@
                 </div>
                 <div class="px-8 py-4 border-b border-b-base-200">
                     <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        <?php if(session()->user->role == 'mahasiswa'): ?>
+                            <img src="<?= base_url('').'/../'.'writable/uploads/' . session()->user->foto?>" style="width: 30px;border-radius:50%;" alt="">
+                        <?php else: ?>
+                            <img src="<?= base_url('profile.jpg') ?>" style="width: 30px;border-radius:50%;" alt="">
+                        <?php endif; ?>
                         <div class="flex flex-col ml-2">
+
                             <span class="text-xs mb-1 line-clamp-1 font-medium">
                                 <?= session()->user->name ?>
                             </span>
