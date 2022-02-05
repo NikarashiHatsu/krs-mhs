@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $title ?? env('app.name') ?></title>
-    <link rel="shortcut icon" href="<?= base_url('/icon.svg') ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url('/icon.png') ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?= base_url('css/app.css') ?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <script src="<?= base_url('js/app.js') ?>" defer></script>
