@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= env('app.name') ?></title>
-    <link rel="shortcut icon" href="<?= base_url('/icon.svg') ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= base_url('/icon.png') ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?= base_url('css/app.css') ?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <script src="<?= base_url('js/app.js') ?>" defer></script>
@@ -43,7 +43,7 @@
             <label for="drawer" class="drawer-overlay"></label>
             <aside class="overflow-y-auto w-80 bg-base-100 text-base-content">
                 <div class="flex items-center p-4 border-b border-b-base-300 backdrop-blur-lg h-16 max-h-16 sticky top-0 z-50">
-                    <img src="<?= base_url('/icon.svg') ?>" class="w-6 h-6 object-contain" />
+                    <img src="<?= base_url('/icon.png') ?>" class="w-6 h-6 object-contain" />
                     <h5 class="text-lg font-medium ml-2">
                         <?= env('app.name') ?>
                     </h5>

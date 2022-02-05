@@ -3,11 +3,7 @@
 <?= $this->section('content') ?>
 <div class="flex justify-center mb-6">
     <a href="<?= base_url('/') ?>">
-        <img
-            src="<?= base_url('/icon.svg') ?>"
-            class="w-24 h-24"
-            alt="Developer's Note Logo"
-        />
+        <img src="<?= base_url('/icon.png') ?>" alt="KRS App" style="width: 150px;">
     </a>
 </div>
 
@@ -19,7 +15,7 @@
             <div class="div form-control mb-4">
                 <label for="name" class="label">
                     <span class="label-text">
-                        Full Name
+                        Nama Lengkap
                     </span>
                 </label>
                 <input
@@ -66,7 +62,7 @@
             <div class="div form-control mb-6">
                 <label for="password_confirmation" class="label">
                     <span class="label-text">
-                        Confirm Password
+                        Konfirmasi Password
                     </span>
                 </label>
                 <input
@@ -80,7 +76,7 @@
 
             <div class="flex items-center justify-end text-sm">
                 <a href="<?= base_url('/login') ?>" class="underline">
-                    Already have an account? Log in here.
+                    Sudah punya akun? Login disini.
                 </a>
                 <button class="btn btn-primary ml-4">
                     Register

@@ -4,9 +4,10 @@
 <div class="flex justify-center mb-6">
     <a href="<?= base_url('/') ?>">
         <img
-            src="<?= base_url('/icon.svg') ?>"
+            src="<?= base_url('/icon.png') ?>"
             class="w-24 h-24"
-            alt="Developer's Note Logo"
+            alt="KRS App"
+            style="width: 150px;"
         />
     </a>
 </div>
@@ -49,7 +50,7 @@
 
             <div class="flex items-center justify-end text-sm">
                 <a href="<?= base_url('/register') ?>" class="underline">
-                    New user? Register here.
+                    Register akun disini.
                 </a>
                 <button class="btn btn-primary ml-4">
                     Login
